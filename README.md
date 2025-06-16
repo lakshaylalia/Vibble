@@ -49,7 +49,12 @@ Authorization: Bearer <your-token>
 ```json
 {
   "statusCode": 201,
-  "data": { ... },
+  "data": {
+    "userId": "12345",
+    "fullName": "John Doe",
+    "email": "john@example.com",
+    "userName": "johndoe"
+  },
   "message": "User registered successfully"
 }
 ```
@@ -67,7 +72,12 @@ Authorization: Bearer <your-token>
 ```json
 {
   "statusCode": 200,
-  "data": { ... },
+  "data": {
+    "userId": "12345",
+    "token": "jwt-token",
+    "email": "john@example.com",
+    "userName": "johndoe"
+  },
   "message": "User logged in successfully"
 }
 ```
@@ -78,6 +88,7 @@ Authorization: Bearer <your-token>
 ```json
 {
   "statusCode": 200,
+  "data": null,
   "message": "User logged out successfully"
 }
 ```
@@ -94,7 +105,14 @@ Authorization: Bearer <your-token>
 ```json
 {
   "statusCode": 200,
-  "data": [ ... ],
+  "data": [
+    {
+      "videoId": "v123",
+      "title": "My Video",
+      "description": "This is a video description",
+      "publishedAt": "2025-06-16T12:00:00Z"
+    }
+  ],
   "message": "Videos found"
 }
 ```
@@ -112,7 +130,12 @@ Authorization: Bearer <your-token>
 ```json
 {
   "statusCode": 201,
-  "data": { ... },
+  "data": {
+    "videoId": "v123",
+    "title": "My Video",
+    "description": "This is a video description",
+    "publishedAt": "2025-06-16T12:00:00Z"
+  },
   "message": "Video published successfully"
 }
 ```
@@ -132,7 +155,11 @@ Authorization: Bearer <your-token>
 ```json
 {
   "statusCode": 201,
-  "data": { ... },
+  "data": {
+    "tweetId": "t123",
+    "content": "This is my first tweet!",
+    "createdAt": "2025-06-16T12:00:00Z"
+  },
   "message": "Tweet created"
 }
 ```
@@ -153,7 +180,12 @@ Authorization: Bearer <your-token>
 ```json
 {
   "statusCode": 200,
-  "data": { ... },
+  "data": {
+    "playlistId": "p123",
+    "name": "My Playlist",
+    "description": "This is a playlist description",
+    "createdAt": "2025-06-16T12:00:00Z"
+  },
   "message": "Playlist created successfully"
 }
 ```
@@ -167,7 +199,10 @@ Authorization: Bearer <your-token>
 ```json
 {
   "statusCode": 200,
-  "data": { ... },
+  "data": {
+    "channelId": "c123",
+    "subscribedAt": "2025-06-16T12:00:00Z"
+  },
   "message": "Subscribed"
 }
 ```
@@ -181,7 +216,10 @@ Authorization: Bearer <your-token>
 ```json
 {
   "statusCode": 200,
-  "data": { ... },
+  "data": {
+    "videoId": "v123",
+    "liked": true
+  },
   "message": "Liked successfully"
 }
 ```
@@ -201,7 +239,11 @@ Authorization: Bearer <your-token>
 ```json
 {
   "statusCode": 200,
-  "data": { ... },
+  "data": {
+    "commentId": "c123",
+    "content": "This is a comment",
+    "createdAt": "2025-06-16T12:00:00Z"
+  },
   "message": "Comment added successfully"
 }
 ```
@@ -215,7 +257,11 @@ Authorization: Bearer <your-token>
 ```json
 {
   "statusCode": 200,
-  "data": { ... },
+  "data": {
+    "totalVideos": 10,
+    "totalSubscribers": 100,
+    "totalViews": 5000
+  },
   "message": "Channel Stats"
 }
 ```
