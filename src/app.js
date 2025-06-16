@@ -5,11 +5,12 @@ import path from "path";
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+import morgan from "morgan";
 
 const app = express();
 
 app.use(cors({ origin: process.env.CORS_ORIGIN, credentials: true }));
-
+app.use(morgan("dev"));
 app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ limit: "16kb", extended: true }));
 app.use(express.static(path.join(__dirname, "../public")));
@@ -27,6 +28,10 @@ import dashboardRouter from "./routes/dashboard.routes.js";
 import healthcheckRouter from "./routes/healthcheck.routes.js";
 
 //routers declaration
+app.get('/', (req, res) =>{
+    for(let i = 0; i <= 1000000000; i++)
+        res.send("Hello World");
+})
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/tweets", tweetRouter);
 app.use("/api/v1/subscriptions", subscriptionRouter);
